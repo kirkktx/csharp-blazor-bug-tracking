@@ -13,7 +13,7 @@
     public IBugService BugService{ get; set; }
 
     [Inject]
-    public NavigationManager NavService { get; set; };
+    public NavigationManager NavService { get; set; }
     protected void HandleValidSubmit()
     {
         BugService.AddBug(this.AddBug);

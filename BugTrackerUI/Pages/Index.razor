@@ -1,5 +1,14 @@
 ﻿@page "/"
 @using BugTrackerUI.Components
+@inject IJSRuntime JsRuntime
 
 <p>This dashboard will begin to fill with widgets as you develop.</p>
 <BugList/>
+<div id="view-div" style="height: 100%; width: 100%"></div>
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        await JsRuntime.InvokeVoidAsync("renderMap");
+    }
+}
